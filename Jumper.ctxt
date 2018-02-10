@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Jumper
+comment0.text=\n\ Write\ a\ description\ of\ class\ Jumper\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=Jumper()
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ Jumper\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment3.params=
+comment3.target=void\ handleKeyPresses()
+comment4.params=
+comment4.target=void\ jump()
+comment5.params=
+comment5.target=void\ standOrFall()
+comment6.params=
+comment6.target=void\ checkHead()
+comment7.params=
+comment7.target=void\ checkLanding()
+comment8.params=
+comment8.target=boolean\ inAir()
+comment9.params=
+comment9.target=void\ fall()
+numComments=10

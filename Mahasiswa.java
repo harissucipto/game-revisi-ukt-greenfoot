@@ -1,0 +1,117 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class Bob here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Mahasiswa extends Jumper
+{
+    private int speed = 3;
+    private int animationDelay = 0;
+    private int frame = 0;
+    private GreenfootImage[] leftImages;
+    private GreenfootImage[] rightImages;
+    private int actorWidth;
+    
+    private static final int DELAY = 3;
+    
+    public Mahasiswa() {
+        super();
+        rightImages = new GreenfootImage[5];
+        leftImages = new GreenfootImage[5];
+        
+        for (int  i = 0; i < 5; i++ ) { 
+            rightImages[i] = new GreenfootImage("images/Dawson_Sprite_Sheet_0" + 
+            Integer.toString(3 + i) + ".png");
+            leftImages[i] = new GreenfootImage(rightImages[i]);
+            leftImages[i].mirrorHorizontally();
+        }
+        
+        actorWidth = getImage() .getWidth();
+    }
+    
+    public void act() {
+        super.act();
+        checkDead();
+        eatReward();
+    }
+    
+    private void checkDead() {
+        Actor enemy = getOneIntersectingObject(Enemy.class);
+        if (enemy != null) {
+            AdeventureWorld adventure = (AdeventureWorld) getWorld();
+            adventure.endGame();
+            
+        }
+    }
+    
+    private void endGame() {
+        Greenfoot.stop();
+    }
+    
+    
+    private void eatReward() {
+        Berkas c = (Berkas) getOneIntersectingObject(Berkas.class);
+        if (c != null) {
+            AdeventureWorld rw = (AdeventureWorld) getWorld();
+            rw.removeObject(c);
+            rw.addBerkasCount(1);
+        }
+    }
+    
+    
+    // Called by superclass
+    protected void handleKeyPresses() {
+        super.handleKeyPresses();
+        if (Greenfoot.isKeyDown("a")) {
+            if (canMoveLeft()) { moveLeft(); }
+        }
+        if (Greenfoot.isKeyDown("d")) {
+            if ( canMoveRight() ) { moveRight(); }
+        }
+    }
+    
+    private boolean canMoveLeft() {
+        if (getX() < 5) return false;
+        return true;
+    }
+    
+    private void moveLeft() {
+        setLocation(getX() - speed, getY());
+        if ( animationDelay % DELAY == 0 ) {
+            animateLeft();
+            animationDelay = 0;
+        }
+        animationDelay++;
+    }
+    
+    private void animateLeft() {
+        setImage( leftImages[frame++] );
+        frame = frame % 5;
+        actorWidth = getImage().getWidth();
+    }
+    
+    private boolean canMoveRight() {
+        if (getX() > getWorld().getWidth() - 5) return false;
+        return true;
+    }
+    
+    private void moveRight() {
+        setLocation(getX() + speed, getY());
+        if (animationDelay % DELAY == 0) {
+            animateRight();
+            animationDelay = 0;
+        }
+        animationDelay++;
+    
+    }
+    
+    private void animateRight() {
+        setImage( rightImages[frame++] );
+        frame = frame % 5;
+        actorWidth = getImage().getWidth();
+    }
+    
+}

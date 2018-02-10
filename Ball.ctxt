@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Ball
+comment0.text=\n\ Write\ a\ description\ of\ class\ Ball\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=cepat
+comment1.target=Ball(int)
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ Ball\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment3.params=
+comment3.target=int\ getXVelocity()
+comment4.params=
+comment4.target=void\ fallOrBounce()
+comment5.params=
+comment5.target=void\ checkHead()
+comment6.params=step
+comment6.target=void\ handleBounce(int)
+comment7.params=dx
+comment7.target=void\ fall(int)
+comment8.params=
+comment8.target=void\ checkOffScreen()
+comment9.params=
+comment9.target=void\ checkLanding()
+numComments=10
